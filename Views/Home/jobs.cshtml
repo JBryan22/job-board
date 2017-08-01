@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Jobs</title>
+    </head>
+    <body>
+        <h1>Posted Jobs:</h1>
+        @if (@Model !=null)
+        {
+            @foreach(var job in Model)
+            {
+
+                <h1>@job.GetTitle()</h1>
+                <h4>Job Description: @job.GetDescription()</h4>
+                <h2>Contact Info:</h2>
+                <p>Name: @job.GetContact().GetName()</p>
+                <p>Email: @job.GetContact().GetEmail()</p>
+                <p>Phone: @job.GetContact().GetPhone()</p>
+                <br>
+
+            }
+        }
+
+        <a href="/">Go home</a>
+        <a href="/formNewJob">Create a new job</a>
+    </body>
+</html>
