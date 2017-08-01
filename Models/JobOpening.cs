@@ -7,6 +7,7 @@ namespace JobBoard.Models
         private string _title;
         private string _description;
         private Contact _contact;
+        private int _id;
         private static List<JobOpening> _allJobs= new List<JobOpening> {};
 
         public JobOpening(string title,string description, Contact contact)
@@ -15,6 +16,7 @@ namespace JobBoard.Models
             _description = description;
             _contact = contact;
             _allJobs.Add(this);
+            _id = _allJobs.Count;
         }
 
         public void SetTitle(string title)
@@ -44,6 +46,14 @@ namespace JobBoard.Models
         public Contact GetContact()
         {
             return _contact;
+        }
+        public static JobOpening Find(int searchId)
+        {
+            return _allJobs[searchId-1];
+        }
+        public int GetId()
+        {
+            return _id;
         }
 
     }

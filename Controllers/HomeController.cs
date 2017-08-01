@@ -40,5 +40,12 @@ namespace JobBoard.Controllers
 
             return View(JobOpening.GetAllJobs());
         }
+
+        [HttpGet("/jobs/{number}")]
+        public ActionResult JobDetail(int number)
+        {
+            JobOpening myJob = JobOpening.Find(number);
+            return View(myJob);
+        }
     }
 }
